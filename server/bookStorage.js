@@ -2,6 +2,8 @@
 
 const books = require('./bookList.json');
 
+
+
 function getAllBooks(){
     return books;
 }
@@ -17,5 +19,7 @@ function getBook(key, value){
     }
     return found;
 }
+
+getAllBooks();
 
 module.exports = { getAllBooks, getBook }

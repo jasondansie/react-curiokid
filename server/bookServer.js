@@ -5,8 +5,7 @@ const http = require('http');
 const port = process.env.PORT || 3030;
 const host = process.env.HOST || "localhost";
 
-
-//const { getAllBooks, getBook } = require('/bookStorage');
+const { getAllBooks, getBook } = require('./bookStorage');
 
 const server = http.createServer((req, res) => {
     const {
