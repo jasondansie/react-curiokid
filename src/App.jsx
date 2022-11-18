@@ -5,7 +5,7 @@ import Button from './Button';
 import Search from './Search';
 import Card from './Card';
 
-const { getBooks, searchBooks } = require('./server/bookLibrary');
+const { getBooks } = require('./server/bookLibrary');
 
 class App extends Component {
   state = {
@@ -28,22 +28,18 @@ class App extends Component {
     })   
   }
 
-  showAllBooks = async () => {
-     await this.getAllBooks.then(
-      this.setState(
-        {allBooks: this.state.allBooks}
-      )     
-     )
-     
-  }
-
-  show5_7books = () => {
+  showRangeOfBooks = (bookAge) => {
     let foundBooks = [];
-
+    console.log("age", bookAge);
     getBooks('http://localhost:3030/books').then((bookList) =>{
       this.setState(
         bookList.forEach(book => {
-          if (book.age <= 7) {
+            if (bookAge === 7) {
+             if(book.age <= bookAge) {
+                foundBooks.push(book);
+            }  
+          }
+          else if (book.age >= 8 && book.age <= 10) {
             foundBooks.push(book);
           }
 
@@ -53,25 +49,6 @@ class App extends Component {
         })
       ) 
     })   
-  }
-
-  show8_10books = () => {
-    let foundBooks = [];
-
-    getBooks('http://localhost:3030/books').then((bookList) =>{
-      this.setState(
-        bookList.forEach(book => {
-          if (book.age >= 8 && book.age <= 10) {
-            foundBooks.push(book);
-          }
-
-          this.setState(
-            {allBooks: foundBooks}
-          )     
-        })
-      ) 
-    })   
-
   }
 
   searchby =  () => {
@@ -81,8 +58,6 @@ class App extends Component {
     this.setState(
       {books: bookarray}
     );
-   
-    
   }
 
   render() {
@@ -98,36 +73,6 @@ class App extends Component {
       )
     });
 
- /*
-    const bookAuthorFilter = this.state.books.filter(book => {
-      return book.author
-      .toLowerCase()
-      .includes(this.state.search.toLowerCase())
-    });
-    const bookListbyTitle = bookTitleFilter.map((book) => {
-      return (
-        <Card 
-        key = {book.id}
-        image= {book.image}
-        title= {book.title}
-        author= {book.author}
-        />
-      )
-    })
-     
-    const bookListbyAuthor = () => {
-       this.state.books.map((book) => {
-      return (
-        <Card 
-        key = {book.id}
-        image= {book.image}
-        title= {book.title}
-        author= {book.author}
-        />
-      )
-    })
-  }
-  */
     console.log(this.state.allBooks);
   
     return (
@@ -136,8 +81,8 @@ class App extends Component {
         <div className="inputs">
           <Search searchHandler={this.searchby}/>
           <Button name={"Show All Books"} showBooks= {this.getAllBooks}/>
-          <Button name={"Show 5-7 books"} showBooks= {this.show5_7books}/>
-          <Button name={"Show 8-10 books"} showBooks= {this.show8_10books}/>
+          <Button name={"Show 5-7 books"} showBooks= {() => this.showRangeOfBooks(7)}/>
+          <Button name={"Show 8-10 books"} showBooks= {() => this.showRangeOfBooks(8)}/>
         </div>
         <div className="bookCards">
           {displayBooks}
