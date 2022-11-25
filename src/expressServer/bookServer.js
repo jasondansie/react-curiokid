@@ -1,20 +1,13 @@
-'use strict'
-
-const { getAllBooks, getBook } = require('./bookStorage');
-
+'use strict';
 
 const http = require('http');
-
-const express = require('express');
-const app = express();
 
 const port = process.env.PORT || 3030;
 const host = process.env.HOST || "localhost";
 
+const { getAllBooks, getBook } = require('./bookStorage');
 
-const server = http.createServer(app);
-
-app.get('/', (req, res) => {
+const server = http.createServer((req, res) => {
     const {
         pathname,
         searchParams
@@ -43,7 +36,6 @@ app.get('/', (req, res) => {
         });
 
         res.end(JSON.stringify(result,null,2));
+})
 
-});
-
-server.listen(port, host, () => console.log(`Server running on host:${host} port:${port}`))
+server.listen(port,host, ()=>console.log(`Server running on ${host} port ${port}`));
