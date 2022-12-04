@@ -51,13 +51,14 @@ class App extends Component {
     })   
   }
 
-  searchby =  () => {
-
-    const bookarray =   getBooks('http://localhost:3030/search/byauthor?value=Jill Tomlinson')
-
-    this.setState(
-      {books: bookarray}
-    );
+  searchby =  (e) => {
+    this.setState({search: e.target.value});
+    getBooks('http://localhost:3030/books').then((bookList) => {
+      let foundBooks = bookList.filter(book => book.title.toLowerCase().includes(this.state.search) || book.author.toLowerCase().includes(this.state.search));
+      this.setState(
+        {allBooks: foundBooks}
+      )  
+    })
   }
 
   render() {
@@ -72,8 +73,6 @@ class App extends Component {
         />
       )
     });
-
-    console.log(this.state.allBooks);
   
     return (
       <div className='app'>
@@ -87,7 +86,7 @@ class App extends Component {
         <div className="bookCards">
           {displayBooks}
         </div>
-      </div>
+      </div>    
     );
   }
 }
