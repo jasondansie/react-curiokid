@@ -54,7 +54,7 @@ class App extends Component {
   searchby =  (e) => {
     this.setState({search: e.target.value});
     getBooks('http://localhost:3030/books').then((bookList) => {
-      let foundBooks = bookList.filter(book => book.title.includes(this.state.search) || book.author.includes(this.state.search));
+      let foundBooks = bookList.filter(book => book.title.toLowerCase().includes(this.state.search) || book.author.toLowerCase().includes(this.state.search));
       this.setState(
         {allBooks: foundBooks}
       )  
