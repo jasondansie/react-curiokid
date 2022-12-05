@@ -17,16 +17,18 @@ class Booklist extends Component  {
     
     searchHandler = (e) => {
     this.setState({search: e.target.value});
+    console.log("clicked");
     }
     
     getAllBooks =  () => {
     
     console.log("clicked");
     
-    getBooks('http://localhost:3030/books').then((bookList) =>{
+    let bb = getBooks('http://localhost:3030/books').then((bookList) =>{
         this.setState(
         {allBooks: bookList}
-        ) 
+        )
+        console.log("bb", bb); 
     })   
     }
       
@@ -92,8 +94,11 @@ class Booklist extends Component  {
                         <Link to="/age7"><Button name={"Books for age 5-7 "}></Button></Link>
                         <Link to="/age10"><Button name={"Books for age 8-10 "}></Button></Link>  
                     </div>
-                
-                </div>
+                    </div>
+                    <div className="bookCards">
+                        {displayBooks}
+                        <p>Hello</p>
+                    </div>
             </div>
         );
     };   
