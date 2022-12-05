@@ -17,6 +17,7 @@ class Booklist extends Component  {
     
     searchHandler = (e) => {
     this.setState({search: e.target.value});
+    console.log("search");
     }
     
     getAllBooks =  () => {
