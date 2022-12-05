@@ -4,6 +4,8 @@ import Title from './Title';
 import Button from './Button';
 import Search from './Search';
 import Card from './Card';
+import Home from './Home';
+
 
 const { getBooks } = require('./server/bookLibrary');
 
@@ -61,6 +63,7 @@ class App extends Component {
   }
 
   render() {
+
        
     const displayBooks = this.state.allBooks.map((book) => {
       return (
@@ -73,16 +76,35 @@ class App extends Component {
       )
     });
 
+
+
+  
     console.log(this.state.allBooks);
   
     return (
+//       <BrowserRouter>
+//   <Routes>
+//     <Route path="/" element={<Home/>}>
+//       <Route path="allbooks" element={<Books/>}></Route>
+//     </Route>
+//   </Routes>
+
+
+
+// </BrowserRouter>
       <div className='app'>
         <Title/>
         <div className="inputs">
-          <Search searchHandler={this.searchby}/>
-          <Button name={"Show All Books"} showBooks= {this.getAllBooks}/>
+          {/* <Search searchHandler={this.searchby}/> */}
+          {/* <Button name={"Show All Books"} showBooks= {this.getAllBooks}/>
           <Button name={"Show 5-7 books"} showBooks= {() => this.showRangeOfBooks(7)}/>
-          <Button name={"Show 8-10 books"} showBooks= {() => this.showRangeOfBooks(8)}/>
+          <Button name={"Show 8-10 books"} showBooks= {() => this.showRangeOfBooks(8)}/> */}
+          
+          <Home
+          allBooks= {this.getAllBooks}
+          age7= {() => this.showRangeOfBooks(7)}
+          age10= {() => this.showRangeOfBooks(8)}
+          />
         </div>
         <div className="bookCards">
           {displayBooks}
