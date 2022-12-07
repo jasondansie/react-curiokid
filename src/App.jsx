@@ -5,7 +5,6 @@ import './Components/Home.css';
 import Layout from './pages/Layout';
 import About from './Components/About';
 
-
 const App = () => { 
   return (
     <BrowserRouter>       

@@ -4,7 +4,6 @@ import Button from './Button';
 import Title from './Title'
 import '../App.css'
 
-
 const Home = () => {           
     return (
         <section className='home'>

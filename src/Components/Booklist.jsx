@@ -5,13 +5,11 @@ import Button from './Button';
 import Title from './Title';
 import Card from './Card';
 
-
 const { getBooks } = require('../server/bookLibrary');
 
 const Booklist = () => {
     const params = useParams();
     const [bookList, setBookList] = useState([]);
-
 
     useEffect(() => {
        
@@ -57,8 +55,7 @@ const Booklist = () => {
     return (
         <div>
             <div className='app'> 
-                <Title /> 
-                      
+                <Title />                   
                 <div className='inputs'>
                     <Search />
                     <Link to="/allbooks"><Button name={"Books for all "} ></Button></Link>
