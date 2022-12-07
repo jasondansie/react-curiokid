@@ -11,7 +11,6 @@ const { getBooks } = require('../server/bookLibrary');
 const Booklist = () => {
     const params = useParams();
     const [bookList, setBookList] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
 
 
     useEffect(() => {
@@ -34,7 +33,6 @@ const Booklist = () => {
     const getAllBooks =  () => {    
         getBooks('http://localhost:3030/books').then((fetchedBookList) =>{   
             setBookList(fetchedBookList);
-            setIsLoading(false);
         })  
     }
     
