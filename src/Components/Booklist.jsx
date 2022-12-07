@@ -65,8 +65,8 @@ const Booklist = () => {
             string: e.target.value,
         });
         let fB = allBooksList.filter(book => 
-            book.title.toLowerCase().includes(search.string) ||
-             book.author.toLowerCase().includes(search.string)
+            book.title.toLowerCase().includes(search.string.toLowerCase()) ||
+             book.author.toLowerCase().includes(search.string.toLowerCase())
              );         
         console.log("foundbooks: ", fB);
         setBookList(fB);
