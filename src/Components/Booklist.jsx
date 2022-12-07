@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { Link} from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { Link, useParams} from "react-router-dom";
 import Search from './Search';
 import Button from './Button';
 import Title from './Title';
@@ -9,39 +9,41 @@ import './Card.css'
 
 const { getBooks } = require('../server/bookLibrary');
 
-class Booklist extends Component {
-    state = {
-        allBooks: [],
-        isLoading: false,
-      }
+const Booklist = () => {
+    const params = useParams();
+    const [bookList, setBookList] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
-      
-    searchHandler = (e) => {
-    this.setState({search: e.target.value});
-    console.log("clicked");
-    }
+
+    useEffect(() => {
+       
+        const getBookList = (pageType) => {        
     
-    getAllBooks =  () => {
-        this.setState(
-            {isLoading: true}
-            )
-        console.log("clicked");
-        
-        getBooks('http://localhost:3030/books').then((bookList) =>{   
-            this.setState(
-                {allBooks: bookList}
-            ) 
+            if (pageType === "allbooks") {
+                getAllBooks();            
+            }
+            if (pageType === "age7") {
+                showRangeOfBooks(7);
+            }
+            if (pageType === "age10") {
+                showRangeOfBooks(8);
+            }               
+        }
+        getBookList(params.pageType);
+    }, [params.pageType])
+  
+    const getAllBooks =  () => {    
+        getBooks('http://localhost:3030/books').then((fetchedBookList) =>{   
+            setBookList(fetchedBookList);
+            setIsLoading(false);
         })  
     }
-      
-    showRangeOfBooks = (bookAge) => {
-        this.setState(
-            {isLoading: true}
-            )
+    
+    const showRangeOfBooks = (bookAge) => {          
         let foundBooks = [];
-        getBooks('http://localhost:3030/books').then((bookList) =>{
-            this.setState(
-            bookList.forEach(book => {
+        getBooks('http://localhost:3030/books').then((fetchedBookList) =>{
+            
+            fetchedBookList.forEach(book => {
                 if (bookAge === 7) {
                     if(book.age <= bookAge) {
                         foundBooks.push(book);
@@ -49,104 +51,35 @@ class Booklist extends Component {
                 }
                 else if (book.age >= 8 && book.age <= 10) {
                     foundBooks.push(book);
-                }
-
-                this.setState(
-                {allBooks: foundBooks}
-                ) 
+                }             
             })
-            ) 
+            setBookList(foundBooks)                  
         })   
     }
-    
-    searchby =  (e) => {
-        this.setState({search: e.target.value});
-        getBooks('http://localhost:3030/books').then((bookList) => {
-            let foundBooks = bookList.filter(book => book.title.toLowerCase().includes(this.state.search) || book.author.toLowerCase().includes(this.state.search));
-            this.setState(
-            {allBooks: foundBooks}
-            )  
-        })
-    }
 
-    refershPage = () => {
-        window.location.reload(false);
-    }
-
-    getBookList = () => {
-        console.log("props",this.props.params);
-       
-
-        if (this.props.params === "allbooks") {
-            console.log("finding all books");
-            this.getAllBooks();
-            
-        }
-        if (this.props.params === "age7") {
-            console.log("finding books  ages 5-7");
-            this.showRangeOfBooks(7);
-        }
-        if (this.props.params === "age10") {
-            console.log("finding books  ages 8-10");
-            this.showRangeOfBooks(8);
-        } 
-        console.log("props2",this.props.params);
-        this.setState(
-            {isLoading: false}
-            )
-        
-    }
-
-    componentDidMount() {
-        this.getBookList();
-        this.setState(
-            {isLoading: false}
-            )
-     }
-
-    displayBooks = this.state.allBooks.map((book) => {
-        return (
-        <Card 
-        key = {book.id}
-        image= {book.image}
-        title= {book.title}
-        author= {book.author}
-        />
-        )
-    });
- 
-    render() {
-        
-        console.log("books",this.state.allBooks)
     return (
         <div>
             <div className='app'> 
                 <Title /> 
                 <Search />      
                 <div className='buttons'>
-                    <Link to="/allbooks"><Button name={"Books for all"} onClick={this.getBookList}></Button></Link>
-                    <Link to="/age7"><Button name={"Books for age 5-7"} onClick={this.getBookList}></Button></Link>
-                    <Link to="/age10"><Button name={"Books for age 8-10"} onClick={this.getBookList}></Button></Link>      
+                    <Link to="/allbooks"><Button name={"Books for all "} ></Button></Link>
+                    <Link to="/age7"><Button name={"Books for age 5-7 "}></Button></Link>
+                    <Link to="/age10"><Button name={"Books for age 8-10 "}></Button></Link>                 
                 </div>
-                <div className="bookCards">                 
-                    if (this.state.allBooks != "") {
-                        this.state.allBooks.map((book) => {
-                            return (
-                            <Card 
-                            key = {book.id}
-                            image= {book.image}
-                            title= {book.title}
-                            author= {book.author}
-                            />
-                            )
-                        })
-                    }    
-                </div>
+                <div>
+                {bookList.map((book) => (
+                    <Card
+                    key = {book.id}
+                    image= {book.image}
+                    title= {book.title}
+                    author= {book.author}
+                    />
+                ))}     
+                </div>                                                     
             </div>
         </div>
     );  
-}
-}  
-
+} 
 
 export default Booklist;

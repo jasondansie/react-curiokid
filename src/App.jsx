@@ -1,28 +1,23 @@
-import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Booklist from './Components/Booklist';
 import './Components/Home.css';
+import Layout from './pages/Layout';
+import About from './Components/About';
 
-const RouterWrapper = (props) => {
-  let {pageType} = useParams();
-  return <Booklist params={pageType} {...props} />
-  
 
-};
-
-const App = () => {
-  
-  
-    return (
-      <BrowserRouter>       
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/:pageType' element={<RouterWrapper />} />
-          <Route path='/:pageType' element={<RouterWrapper />} />
-          <Route path='/:pageType' element={<RouterWrapper />} />
-        </Routes>          
+const App = () => { 
+  return (
+    <BrowserRouter>       
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />}></Route>
+          <Route path='/:pageType' element={<Booklist />} />
+          <Route path='about' element={<About />} />
+        </Route>
+      </Routes>         
     </BrowserRouter>
-    );
-  }
+  );
+}
 
 export default App;
