@@ -4,8 +4,7 @@ import Search from './Search';
 import Button from './Button';
 import Title from './Title';
 import Card from './Card';
-import '../App.css';
-import './Card.css'
+
 
 const { getBooks } = require('../server/bookLibrary');
 
@@ -61,21 +60,22 @@ const Booklist = () => {
         <div>
             <div className='app'> 
                 <Title /> 
-                <Search />      
-                <div className='buttons'>
+                      
+                <div className='inputs'>
+                    <Search />
                     <Link to="/allbooks"><Button name={"Books for all "} ></Button></Link>
                     <Link to="/age7"><Button name={"Books for age 5-7 "}></Button></Link>
                     <Link to="/age10"><Button name={"Books for age 8-10 "}></Button></Link>                 
                 </div>
-                <div>
-                {bookList.map((book) => (
-                    <Card
-                    key = {book.id}
-                    image= {book.image}
-                    title= {book.title}
-                    author= {book.author}
-                    />
-                ))}     
+                <div className="bookCards">
+                    {bookList.map((book) => (
+                        <Card
+                        key = {book.id}
+                        image= {book.image}
+                        title= {book.title}
+                        author= {book.author}
+                        />
+                    ))}     
                 </div>                                                     
             </div>
         </div>
