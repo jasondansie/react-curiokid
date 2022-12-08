@@ -27,3 +27,9 @@ button:hover {
     background-color: rgb(211, 74, 16);
     text-shadow: 1px 1px 2px rgb(194, 187, 187), 0 0 25px rgb(142, 139, 139), 5px 5px 5px rgb(141, 134, 131)
 }
+img{
+    height:400px;
+    width:400px;
+    padding:5px;
+}
+   
