@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lato:ital@0;1&family=Montserrat&family=Ms+Madi&family=Mystery+Quest&family=Titan+One&display=swap');
 .app{
-    background: url(https://wallpaperaccess.com/full/4668997.jpg) no-repeat fixed center center/cover;
+    /* background: url(https://wallpaperaccess.com/full/4668997.jpg) no-repeat fixed center center/cover; */
     min-height: 100vh;
     font-family: 'Mystery Quest', cursive;
 }

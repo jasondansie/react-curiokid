@@ -89,7 +89,7 @@ class Booklist extends Component  {
                     <Title /> 
                     <Search />      
                     <div className='buttons'>
-                        <Link to="/allbooks"><Button name={"Books for all "} onClick={  this.getAllBooks}></Button></Link>
+                        <Link to="/allbooks"><Button name={"Books for all "} onClick={this.getAllBooks}></Button></Link>
                         <Link to="/age7"><Button name={"Books for age 5-7 "}></Button></Link>
                         <Link to="/age10"><Button name={"Books for age 8-10 "}></Button></Link>  
                     </div>

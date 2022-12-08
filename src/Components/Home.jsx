@@ -1,17 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link, Outlet} from "react-router-dom";
 import Button from './Button';
 import Title from './Title'
-import '../App.css';
+// import '../App.css';
+import './Home.css';
 
 
 const Home = () => {
+    // const [showSearch,setShowSearch] = useState(false);
+    // const onClick = ()=> setShowSearch(true);
  
     return (
         <section className='app'>
             <Title />
             <section className='buttons'>
-                <Link to="/allbooks">
+                <Link to="/allbooks" >
                     <img src={`https://img.freepik.com/free-vector/books-with-children-white-background_1308-20924.jpg?w=2000`} alt="animal"/>
                     <h2>Books for all</h2>
                     {/* <Button name={"Books for all "}></Button> */}
