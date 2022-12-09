@@ -1,38 +1,3 @@
-/* .app{
-    height:100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: url(https://wallpaperaccess.com/full/4668997.jpg) no-repeat fixed center center/cover;
-    
-}
-
-.buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10rem;
-
-}
-
-.app button {  
-    height: 20vh;
-    width: 20vw;
-    margin: 1vw;
-    background-color: rgb(240, 196, 178);
-    color: rgb(211, 74, 16);
-    border-radius: 5px;
-    font-weight: 700;
-    font-size: 2vw;
-    text-shadow: 1px 1px 2px rgb(236, 234, 234), 0 0 25px rgb(206, 65, 18), 5px 5px 5px rgb(180, 72, 10)
-}
-.app button:hover {
-    color: rgb(249, 242, 239);
-    background-color: rgb(211, 74, 16);
-    text-shadow: 1px 1px 2px rgb(194, 187, 187), 0 0 25px rgb(142, 139, 139), 5px 5px 5px rgb(141, 134, 131)
-}  */
-
 .bookList{
     background: url(https://wallpaperaccess.com/full/4668997.jpg) no-repeat fixed center center/cover;
     min-height: 100vh;
@@ -44,7 +9,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 10rem;
-
+    
 }
 
 .home button {  
@@ -52,11 +17,13 @@
     width: 20vw;
     margin: 1vw;
     background-color: rgb(240, 196, 178);
-    color: rgb(211, 74, 16);
+    color: rgb(91, 16, 211);
     border-radius: 5px;
     font-weight: 700;
     font-size: 2vw;
-    text-shadow: 1px 1px 2px rgb(236, 234, 234), 0 0 25px rgb(206, 65, 18), 5px 5px 5px rgb(180, 72, 10)
+    text-shadow: 1px 1px 2px rgb(236, 234, 234), 0 0 25px rgb(206, 65, 18), 5px 5px 5px rgb(180, 72, 10);
+    background-image: url('https://img.freepik.com/free-vector/coworking-space-interior-empty-office-business-center-with-computer-desks_107791-3948.jpg?w=2000');
+    
 }
 .home button:hover {
     color: rgb(249, 242, 239);
