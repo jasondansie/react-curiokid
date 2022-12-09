@@ -1,0 +1,41 @@
+.home{
+    background: radial-gradient(rgba(255, 0, 0, 0),rgb(99, 89, 207));
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+    
+
+}
+
+.home button {  
+    height: 20vh;
+    width: 20vw;
+    margin: 1vw;
+    background-color: rgb(240, 196, 178);
+    color: rgb(211, 74, 16);
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 2vw;
+    text-shadow: 1px 1px 2px rgb(236, 234, 234), 0 0 25px rgb(206, 65, 18), 5px 5px 5px rgb(180, 72, 10)
+    
+}
+.home button:hover {
+    color: rgb(249, 242, 239);
+    background-color: rgb(211, 74, 16);
+    text-shadow: 1px 1px 2px rgb(194, 187, 187), 0 0 25px rgb(142, 139, 139), 5px 5px 5px rgb(141, 134, 131)
+} 
+
+img{
+    height:400px;
+    width:400px;
+    padding:5px;  
+}

@@ -1,0 +1,33 @@
+.search {
+    color: aliceblue;
+    text-align: center;
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2vw;
+}
+input,label {
+    font-family: inherit;
+    font-size: 1.5rem;
+}
+input {
+    text-align: center;
+    margin-top: 1rem;
+    background-color: rgb(244, 240, 234);
+    color: rgb(184, 48, 11);
+    padding: 1rem;
+    margin-right: .8vw;
+    border-radius: .4rem;
+    width: 25vw;
+    box-shadow: 5px 5px 5px rgb(196, 155, 141);
+}
+input:hover{
+    border: none;
+    box-shadow: 1px 1px 2px rgb(236, 234, 234), 0 0 25px rgb(255, 68, 0), 5px 5px 5px rgb(194, 54, 7)
+}
+label {
+    color: rgb(10, 6, 247);
+    font-size: 2rem;
+    
+}

@@ -1,0 +1,18 @@
+.title{
+    color: aliceblue;
+    text-align: center;
+}
+h1,h2{
+    padding-top: 2vh;
+    margin: 10px;
+    font-family: inherit;
+    text-align: center;
+    font-size: 2rem;
+    color: rgb(225, 9, 241);
+    text-shadow: 1px 1px 2px rgb(242, 239, 239), 5px 5px 25px rgb(184, 184, 183), 5px 5px 5px rgb(226, 231, 221);
+}
+span {
+    font-size: 3rem;
+    color: rgb(10, 6, 247);
+    text-shadow: 1px 1px 2px rgb(242, 239, 239), 5px 5px 25px rgb(42, 182, 224), 5px 5px 5px rgb(195, 54, 7);
+}
