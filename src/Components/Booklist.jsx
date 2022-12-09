@@ -25,10 +25,12 @@ class Booklist extends Component  {
     console.log("clicked");
     
     getBooks('http://localhost:3030/books').then((bookList) =>{
+        console.log(bookList) 
         this.setState(
         {allBooks: bookList}
+        
         ) 
-    })   
+    })  
     }
       
     sendBooks =  (pageType) => {
@@ -87,7 +89,8 @@ class Booklist extends Component  {
             <div>
                 <div className='app'> 
                     <Title /> 
-                    <Search />      
+                    <Search /> 
+                    {displayBooks}     
                     <div className='buttons'>
                         <Link to="/allbooks"><Button name={"Books for all "} onClick={this.getAllBooks}></Button></Link>
                         <Link to="/age7"><Button name={"Books for age 5-7 "}></Button></Link>
