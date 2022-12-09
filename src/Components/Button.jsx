@@ -4,7 +4,10 @@ import './Button.css'
 const Button = (props) => {
     return (
         <div>
-            <button type="submit" onClick={props.onClick} allbooks={props.allbooks}>{props.name}</button>
+            <button type="submit" onClick={props.onClick} allbooks={props.allbooks} src={props.image}>
+                <img src={props.image} alt={props.imageAlt} />
+                {props.name}
+            </button>
         </div>
     );
 };

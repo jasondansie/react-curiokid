@@ -10,7 +10,7 @@ const Home = () => {
         <section className='home'>
             <Title />
             <section className='buttons'>
-                <Link to="/allbooks"><Button name={"Books for all "} ></Button></Link>
+                <Link to="/allbooks"><Button name={"Books for all "} image={"../Images/kids1.jpg"} imagAlt={"all books"}></Button></Link>
                 <Link to="/age7"><Button name={"Books for age 5-7 "}></Button></Link>
                 <Link to="/age10"><Button name={"Books for age 8-10 "}></Button></Link>                                
             </section>                           

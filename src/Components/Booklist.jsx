@@ -41,6 +41,7 @@ const Booklist = () => {
        getBookList(params.pageType);
     }, [params.pageType, allBooksList]);
     
+
     const showRangeOfBooks = (bookAge) => {       
         let foundBooks = [];   
         getBooks('http://localhost:3030/books').then((fetchedBookList) =>{   
@@ -90,8 +91,8 @@ const Booklist = () => {
                     searchHandler={searchHandler}
                     />
                 <Link to="/allbooks"><Button name={"Books for all "} ></Button></Link>
-                <Link to="/age7"><Button name={"Books for age 5-7 "}></Button></Link>
-                <Link to="/age10"><Button name={"Books for age 8-10 "}></Button></Link>                 
+                <Link to="/age7"><Button name={"Books for age 5-7 "}></Button></Link>                
+                <Link to="/age10"><Button name={"Books for age 8-10 "}></Button></Link>                
             </section>               
             <section className="bookCards">
                 {dispalyCards()}                     
