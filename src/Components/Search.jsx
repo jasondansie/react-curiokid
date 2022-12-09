@@ -1,10 +1,10 @@
 import React from 'react';
 import './Search.css'
 
-const Search = (props) => {
+const Search = ({searchHandler}) => {
     return (
         <div className='search'>
-                <input type="search" placeholder="Name, Author, Category..." id="searchBook" onKeyUp = {props.searchHandler}/>
+                <input type="search" placeholder="Name, Author, Category..." id="searchBook" onChange = {searchHandler}/>
                 <label htmlFor="searchBook">Search</label>
         </div>
     );
