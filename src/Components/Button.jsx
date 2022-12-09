@@ -4,7 +4,7 @@ import './Button.css'
 const Button = (props) => {
     return (
         <div>
-            <button type="submit" onClick={props.onClick}>{props.name}</button>
+            <button type="submit" onClick={props.onClick}allbooks={props.allbooks}>{props.name}</button>
         </div>
     );
 };
