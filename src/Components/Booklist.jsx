@@ -4,6 +4,7 @@ import Search from './Search';
 import Button from './Button';
 import Title from './Title';
 import Card from './Card';
+import './Booklist.css'
 
 const { getBooks } = require('../server/bookLibrary');
 
