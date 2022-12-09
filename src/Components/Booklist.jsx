@@ -16,8 +16,8 @@ const Booklist = () => {
         string: '',
     });
 
+
     useEffect(() => {
-       
 
         const getBookList = (pageType) => {        
     
@@ -82,8 +82,6 @@ const Booklist = () => {
             title= {book.title}
             author= {book.author}
             />
-        ))     
-    }           
 
     return (
         <div>

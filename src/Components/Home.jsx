@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { Link} from "react-router-dom";
 import Button from './Button';
 import Title from './Title'
-import '../App.css'
+import './Home.css';
 
 const Home = () => {           
     return (
