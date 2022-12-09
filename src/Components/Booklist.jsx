@@ -16,7 +16,6 @@ const Booklist = () => {
         string: '',
     });
 
-
     useEffect(() => {
 
         const getBookList = (pageType) => {        
@@ -32,19 +31,18 @@ const Booklist = () => {
             }               
         }
 
-        const getAllBooks =  () => {    
+        const getAllBooks =  () => {  
             getBooks('http://localhost:3030/books').then((fetchedBookList) =>{   
                 setAllBookList(fetchedBookList);
-                setBookList(allBooksList);
+                setBookList(allBooksList);      
             })  
         }
         
        getBookList(params.pageType);
     }, [params.pageType, allBooksList]);
     
-    
     const showRangeOfBooks = (bookAge) => {       
-        let foundBooks = [];    
+        let foundBooks = [];   
         getBooks('http://localhost:3030/books').then((fetchedBookList) =>{   
             fetchedBookList.forEach(book => {
                 if (bookAge === 7) {
@@ -57,6 +55,7 @@ const Booklist = () => {
                 }             
             })
             setBookList(foundBooks)
+          
             })                           
     }
 
@@ -65,13 +64,11 @@ const Booklist = () => {
             ...search,
             string: e.target.value,
         });
-        let fB = allBooksList.filter(book => 
+        let foundBooks = allBooksList.filter(book => 
             book.title.toLowerCase().includes(search.string.toLowerCase()) ||
              book.author.toLowerCase().includes(search.string.toLowerCase())
              );         
-        console.log("foundbooks: ", fB);
-        setBookList(fB);
-           
+        setBookList(foundBooks);     
     }
 
     const dispalyCards = () =>{
@@ -82,25 +79,25 @@ const Booklist = () => {
             title= {book.title}
             author= {book.author}
             />
+       ))}
 
-    return (
-        <div>
-            <div className='app'> 
-                <Title />                   
-                <div className='inputs'>
-                    <Search
-                        {...search}
-                        searchHandler={searchHandler}
-                     />
-                    <Link to="/allbooks"><Button name={"Books for all "} ></Button></Link>
-                    <Link to="/age7"><Button name={"Books for age 5-7 "}></Button></Link>
-                    <Link to="/age10"><Button name={"Books for age 8-10 "}></Button></Link>                 
-                </div>               
-                <div className="bookCards">
-                  {dispalyCards()}                     
-                </div>                                                     
-            </div>
-        </div>
+    return (     
+        <section className='bookList'> 
+            <Title />                   
+            <section className='inputs'>
+                <Search
+                    {...search}
+                    searchHandler={searchHandler}
+                    />
+                <Link to="/allbooks"><Button name={"Books for all "} ></Button></Link>
+                <Link to="/age7"><Button name={"Books for age 5-7 "}></Button></Link>
+                <Link to="/age10"><Button name={"Books for age 8-10 "}></Button></Link>                 
+            </section>               
+            <section className="bookCards">
+                {dispalyCards()}                     
+            </section>                                                     
+        </section>
+       
     );  
 } 
 

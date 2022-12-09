@@ -1,5 +1,5 @@
-body{
-    background-image: radial-gradient(rgba(255, 0, 0, 0),rgb(99, 89, 207));
+.home{
+    background: radial-gradient(rgba(255, 0, 0, 0),rgb(99, 89, 207));
     height:100vh;
     display: flex;
     justify-content: center;
