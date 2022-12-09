@@ -1,6 +1,6 @@
 .card {
     width: 20vw;
-    height: 50vh;
+    height: 55vh;
     margin: 1vw;
     background-color: rgb(237, 225, 206);
     padding: 1.4vw;
@@ -15,7 +15,7 @@
     width: 11vw;
 }
 
-h2 {
+.card h2 {
     color: orangered;
     font-size: 3.3vh;
 }
