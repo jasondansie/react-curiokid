@@ -1,16 +1,14 @@
-.bookList{
+.bookList {
     background: url(https://wallpaperaccess.com/full/4668997.jpg) no-repeat fixed center center/cover;
 }
 
-.buttons{
+.buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10rem;
-    
 }
 
-.home button {  
+.home button {
     height: 20vh;
     width: 20vw;
     margin: 1vw;
@@ -21,22 +19,24 @@
     font-size: 2vw;
     text-shadow: 1px 1px 2px rgb(236, 234, 234), 0 0 25px rgb(206, 65, 18), 5px 5px 5px rgb(180, 72, 10);
     background-image: url('https://img.freepik.com/free-vector/coworking-space-interior-empty-office-business-center-with-computer-desks_107791-3948.jpg?w=2000');
-    
+
 }
+
 .home button:hover {
     color: rgb(249, 242, 239);
     background-color: rgb(211, 74, 16);
     text-shadow: 1px 1px 2px rgb(194, 187, 187), 0 0 25px rgb(142, 139, 139), 5px 5px 5px rgb(141, 134, 131)
-} 
+}
 
-.bookCards{
+.bookCards {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-.inputs{
+
+.inputs {
     display: flex;
     align-items: center;
     justify-content: center;
-}   
+}
