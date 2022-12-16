@@ -9,7 +9,7 @@
     - Product owner, Lead programmer, BackEnd
 
 ## How to run the app
-- nmp run
+- npm run
 - In a new console npm run server
 
 ## App description
